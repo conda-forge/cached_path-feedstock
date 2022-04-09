@@ -1,4 +1,4 @@
-{% set version = "1.1.1" %}
+{% set version = "1.1.2" %}
 
 package:
   name: cached_path
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 66ec46fda5b521cee6e09702733101751ea81d9ac7af70e8bd07228e87e2f027
+  sha256: 96d94a190e5feddbce52bb009adf1ff67cf633a4bf491239aaa938a3ef81b8bd
   patches:
       # upstream expectes the folders /tests & /test_fixtures to be relative
       # to the finished package, even though those folders are not packaged;
@@ -34,9 +34,9 @@ requirements:
     - boto3 >=1.0,<2.0
     - filelock >=3.4,<3.7
     - google-cloud-storage >=1.0,<3.0
-    - huggingface_hub >=0.0.12,<0.5.0
+    - huggingface_hub >=0.0.12,<0.6.0
     - requests >=2.0,<3.0
-    - tqdm >=4.62,<4.64
+    - tqdm >=4.62,<4.65
 test:
   requires:
     - pytest
