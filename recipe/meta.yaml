@@ -34,9 +34,9 @@ requirements:
     - boto3 >=1.0,<2.0
     - filelock >=3.4,<3.7
     - google-cloud-storage >=1.0,<3.0
-    - huggingface_hub >=0.0.12,<0.5.0
+    - huggingface_hub >=0.0.12,<0.6.0
     - requests >=2.0,<3.0
-    - tqdm >=4.62,<4.64
+    - tqdm >=4.62,<4.65
 test:
   requires:
     - pytest
