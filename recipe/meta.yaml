@@ -49,7 +49,7 @@ test:
   imports:
     - cached_path
   commands:
-    - pytest -v
+    - pytest -v -k "not test_http_502"
 
 about:
   home: https://github.com/allenai/cached_path
