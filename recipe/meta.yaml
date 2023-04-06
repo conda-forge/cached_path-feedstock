@@ -1,4 +1,4 @@
-{% set version = "1.3.3" %}
+{% set version = "1.3.4" %}
 
 package:
   name: cached_path
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 3c4b45ae2382e389fb56330efebe33637ad248da93d3bcba639f89da3093098f
+  sha256: 3149e45ce97bbe611549c685eb48294f387f51baec425cfafe7e884498ac7357
   patches:
       # upstream expectes the folders /tests & /test_fixtures to be relative
       # to the finished package, even though those folders are not packaged;
