@@ -1,11 +1,11 @@
-About cached_path
-=================
+About cached_path-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cached_path-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/allenai/cached_path
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cached_path-feedstock/blob/main/LICENSE.txt)
 
 Summary: A file utility for accessing both local and remote files through a unified interface.
 
