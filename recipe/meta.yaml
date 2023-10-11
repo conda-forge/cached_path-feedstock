@@ -1,4 +1,4 @@
-{% set version = "1.4.0" %}
+{% set version = "1.5.0" %}
 
 package:
   name: cached_path
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: f7f5cab8bdce3af8d7f4ad75b517456d74ab321ec4dce6ad953bc8b1da4c1677
+  sha256: a8196370c2676a0c01c95c36e366cf1a990ba0f073779196bc848c9c8fc34064
   patches:
       # upstream expectes the folders /tests & /test_fixtures to be relative
       # to the finished package, even though those folders are not packaged;
@@ -15,7 +15,7 @@ source:
     - patches/0001-patch-BaseTestClass-so-that-test-suite-can-be-run-wi.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # debug this on the feedstock; allennlp stack in conda-forge
   # doesn't support windows yet anyway due to missing pytorch
