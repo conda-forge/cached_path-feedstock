@@ -1,4 +1,4 @@
-{% set version = "1.5.1" %}
+{% set version = "1.6.2" %}
 
 package:
   name: cached_path
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 2a12e0dcdc0802f5bc2f31a217bfbba2598dda122a013d23db79009370723c77
+  sha256: add058b9b01913b6e758e16447a396e144ddf046d66e78c4e8e9a49461ab26b0
   patches:
       # upstream expectes the folders /tests & /test_fixtures to be relative
       # to the finished package, even though those folders are not packaged;
@@ -31,22 +31,24 @@ requirements:
   run:
     - python
     - boto3 >=1.0,<2.0
-    - filelock >=3.4,<3.13
+    - filelock >=3.4,<3.14
     - google-cloud-storage >=1.32,<3.0
-    - huggingface_hub >=0.8.1,<0.17
+    - huggingface_hub >=0.8.1,<0.22
     - requests >=2.0,<3.0
     - rich >=12.1,<14
 test:
   requires:
-    - pytest
+    - pytest <8
     - flaky
     - responses
+    - pip
   source_files:
     - test_fixtures/
     - tests/
   imports:
     - cached_path
   commands:
+    - pip check
     - pytest -v -k "not test_http_502"
 
 about:
@@ -60,3 +62,4 @@ about:
 extra:
   recipe-maintainers:
     - h-vetinari
+    - xhochy
