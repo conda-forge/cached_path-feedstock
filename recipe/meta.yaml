@@ -50,7 +50,11 @@ test:
     - cached_path
   commands:
     - pip check
-    - pytest -v -k "not test_http_502"
+    # cannot work here
+    {% set tests_to_skip = "test_http_502" %}
+    # urrlib3 >=2.0 returns a different error for unreachable urls than cached_path 
+    {% set tests_to_skip = tests_to_skip + " or test_http_404 or test_http_500" %}  # [py>39]
+    - pytest -v -k "not ({{ tests_to_skip }})"
 
 about:
   home: https://github.com/allenai/cached_path
