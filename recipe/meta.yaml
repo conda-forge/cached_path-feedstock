@@ -33,14 +33,14 @@ requirements:
   run:
     - python
     - boto3 >=1.0,<2.0
-    - filelock >=3.4,<3.14
+    - filelock >=3.4,<4.0
     - google-cloud-storage >=1.32,<3.0
-    - huggingface_hub >=0.8.1,<0.24
+    - huggingface_hub >=0.8.1,<0.27
     - requests >=2.0,<3.0
     - rich >=12.1,<14
 test:
   requires:
-    - pytest <8
+    - pytest
     - flaky
     - responses
     - pip
