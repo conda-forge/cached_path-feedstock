@@ -1,5 +1,5 @@
 {% set tests_to_skip = "test_http_502" %}
-{% set version = "1.7.1" %}
+{% set version = "1.7.2" %}
 
 package:
   name: cached_path
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: ef29b2fa86807a4826e0e2b790fde898f5b53d72b8d2a3710f8eb543f7c2fb81
+  sha256: 53b01f36f95fc8b108c672f5996e2aae2754cca3d02152024282b2663141e54e
   patches:
       # upstream expectes the folders /tests & /test_fixtures to be relative
       # to the finished package, even though those folders are not packaged;
