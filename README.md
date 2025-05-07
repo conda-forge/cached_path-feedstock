@@ -218,7 +218,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-cached_path-green.svg)](https://anaconda.org/conda-forge/cached_path) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cached_path.svg)](https://anaconda.org/conda-forge/cached_path) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cached_path.svg)](https://anaconda.org/conda-forge/cached_path) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cached_path.svg)](https://anaconda.org/conda-forge/cached_path) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-cached__path-green.svg)](https://anaconda.org/conda-forge/cached_path) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cached_path.svg)](https://anaconda.org/conda-forge/cached_path) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cached_path.svg)](https://anaconda.org/conda-forge/cached_path) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cached_path.svg)](https://anaconda.org/conda-forge/cached_path) |
 
 Installing cached_path
 ======================
