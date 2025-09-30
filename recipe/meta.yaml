@@ -1,5 +1,5 @@
 {% set tests_to_skip = "test_http_502" %}
-{% set version = "1.7.3" %}
+{% set version = "1.8.0" %}
 
 package:
   name: cached_path
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 3a12ec13ae4128aa9293164422e1eb438cb875011dfbb92e5484688aa133da56
+  sha256: 340d0a2a87b82450c810d62f3d293f263c8c555c0b6bfc2cec36d1e176730dc5
   patches:
       # upstream expectes the folders /tests & /test_fixtures to be relative
       # to the finished package, even though those folders are not packaged;
@@ -16,7 +16,7 @@ source:
     - patches/0001-patch-BaseTestClass-so-that-test-suite-can-be-run-wi.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # debug this on the feedstock; allennlp stack in conda-forge
   # doesn't support windows yet anyway due to missing pytorch
