@@ -16,7 +16,7 @@ source:
     - patches/0001-patch-BaseTestClass-so-that-test-suite-can-be-run-wi.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # debug this on the feedstock; allennlp stack in conda-forge
   # doesn't support windows yet anyway due to missing pytorch
