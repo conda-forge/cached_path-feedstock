@@ -17,8 +17,6 @@ package:
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 340d0a2a87b82450c810d62f3d293f263c8c555c0b6bfc2cec36d1e176730dc5
-  patches:
-    - patches/0001-patch-BaseTestClass-so-that-test-suite-can-be-run-wi.patch
 
 build:
   number: 1
@@ -59,6 +57,8 @@ tests:
         - python ${{ python_min }}.*
         - responses
     script:
+      # $SP_DIR is not set in rattler-build
+      - python -c "import shutil, site; sp = site.getsitepackages()[0]; [shutil.copytree(p, f'{sp}/{p}') for p in ['tests', 'test_fixtures']]"
       - pytest -vv --tb=long --color=yes -k "${{ tests_to_skip }}"
 
 about:
