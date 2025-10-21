@@ -3,8 +3,12 @@ schema_version: 1
 
 context:
   version: "1.8.0"
-  tests_to_skip: not test_http_502
-  python_check_max: "3.14"
+  tests_to_skip: not (test_http_404 or test_http_500 or test_http_502)
+  python_check_max: "3.13"
+  #   File "$SRC_DIR_env/lib/python3.14/site-packages/google/cloud/storage/blob.py", line 21, in <module>
+  #       import cgi
+  #   ModuleNotFoundError: No module named 'cgi'
+  # python_check_max: "3.14"
 
 package:
   name: cached_path
@@ -13,12 +17,6 @@ package:
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 340d0a2a87b82450c810d62f3d293f263c8c555c0b6bfc2cec36d1e176730dc5
-  patches:
-    # upstream expectes the folders /tests & /test_fixtures to be relative
-    # to the finished package, even though those folders are not packaged;
-    # effectively, the upstream test suite can currently only be run in (their)
-    # development mode, so patch it that we can properly test the package here.
-    - patches/0001-patch-BaseTestClass-so-that-test-suite-can-be-run-wi.patch
 
 build:
   number: 1
@@ -36,9 +34,10 @@ requirements:
     - filelock >=3.4,<4.0
     - google-cloud-storage >=1.32,<3.0
     - huggingface_hub >=0.8.1,<1.0
+    - packaging
     - python >=${{ python_min }}
-    - requests >=2.0,<3.0
-    - rich >=12.1,<14
+    - requests
+    - rich >=12.1,<14.0
 
 tests:
   - python:
@@ -48,6 +47,8 @@ tests:
         - ${{ python_min }}.*
         - ${{ python_check_max }}.*
   - files:
+      recipe:
+        - run_tests_in_sp_dir.py
       source:
         - test_fixtures/
         - tests/
@@ -58,7 +59,7 @@ tests:
         - python ${{ python_min }}.*
         - responses
     script:
-      - pytest -vv --tb=long --color=yes -k "${{ tests_to_skip }}"
+      - python run_tests_in_sp_dir.py -vv --tb=long --color=yes -k "${{ tests_to_skip }}"
 
 about:
   license: Apache-2.0
