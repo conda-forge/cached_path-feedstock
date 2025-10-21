@@ -17,6 +17,8 @@ package:
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 340d0a2a87b82450c810d62f3d293f263c8c555c0b6bfc2cec36d1e176730dc5
+  patches:
+    - patches/0001-patch-BaseTestClass-so-that-test-suite-can-be-run-wi.patch
 
 build:
   number: 1
@@ -47,8 +49,6 @@ tests:
         - ${{ python_min }}.*
         - ${{ python_check_max }}.*
   - files:
-      recipe:
-        - run_tests_in_sp_dir.py
       source:
         - test_fixtures/
         - tests/
@@ -59,7 +59,7 @@ tests:
         - python ${{ python_min }}.*
         - responses
     script:
-      - python run_tests_in_sp_dir.py -vv --tb=long --color=yes -k "${{ tests_to_skip }}"
+      - pytest -vv --tb=long --color=yes -k "${{ tests_to_skip }}"
 
 about:
   license: Apache-2.0
