@@ -3,6 +3,7 @@ schema_version: 1
 
 context:
   version: "1.8.0"
+  # urrlib3 >=2.0 returns a different error for unreachable urls than cached_path 
   tests_to_skip: not (test_http_404 or test_http_500 or test_http_502)
   python_check_max: "3.13"
   #   File "$SRC_DIR_env/lib/python3.14/site-packages/google/cloud/storage/blob.py", line 21, in <module>
