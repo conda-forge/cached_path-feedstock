@@ -2,14 +2,10 @@
 schema_version: 1
 
 context:
-  version: "1.8.1"
+  version: "1.8.9"
   # urrlib3 >=2.0 returns a different error for unreachable urls than cached_path 
   tests_to_skip: not (test_http_404 or test_http_500 or test_http_502)
-  python_check_max: "3.13"
-  #   File "$SRC_DIR_env/lib/python3.14/site-packages/google/cloud/storage/blob.py", line 21, in <module>
-  #       import cgi
-  #   ModuleNotFoundError: No module named 'cgi'
-  # python_check_max: "3.14"
+  python_check_max: "3.14"
 
 package:
   name: cached_path
@@ -17,7 +13,7 @@ package:
 
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 3afbcf5316e7a3a0cf94d881ae108eca3f09c792d282184c85ba92ddde07d117
+  sha256: edc15f2920859e1a9827a36a97ff59b6dcca155250c1b7fb165fb24ac21c7b4b
 
 build:
   number: 0
@@ -33,8 +29,8 @@ requirements:
   run:
     - boto3 >=1.0,<2.0
     - filelock >=3.4,<4.0
-    - google-cloud-storage >=1.32,<3.0
-    - huggingface_hub >=0.8.1,<1.0
+    - google-cloud-storage >=1.32,<4.0
+    - huggingface_hub >=0.8.1,<2.0
     - packaging
     - python >=${{ python_min }}
     - requests
