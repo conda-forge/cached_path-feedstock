@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.8.1"
+  version: "1.8.9"
   # urrlib3 >=2.0 returns a different error for unreachable urls than cached_path 
   tests_to_skip: not (test_http_404 or test_http_500 or test_http_502)
   python_check_max: "3.13"
@@ -17,7 +17,7 @@ package:
 
 source:
   url: https://github.com/allenai/cached_path/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 3afbcf5316e7a3a0cf94d881ae108eca3f09c792d282184c85ba92ddde07d117
+  sha256: edc15f2920859e1a9827a36a97ff59b6dcca155250c1b7fb165fb24ac21c7b4b
 
 build:
   number: 0
