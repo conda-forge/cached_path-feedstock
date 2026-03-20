@@ -5,7 +5,7 @@
 
 [workspace]
 name = "cached_path-feedstock"
-version = "3.54.2"  # conda-smithy version used to generate this file
+version = "3.57.0"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/cached_path-feedstock"
 authors = ["@conda-forge/cached_path"]
 channels = ["conda-forge"]
